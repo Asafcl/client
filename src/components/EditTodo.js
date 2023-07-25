@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import {SERVER_URL} from '../config/config'
 
 const EditTodo = ({ todo }) => {
   const [description, setDescription] = useState(todo.description);
@@ -10,7 +11,7 @@ const EditTodo = ({ todo }) => {
     try {
       const body = { description };
       const response = await fetch(
-        `http://localhost:3001/todos/${todo.todo_id}`,
+        `${SERVER_URL}/todos/${todo.todo_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
